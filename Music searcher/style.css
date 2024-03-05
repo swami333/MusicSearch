@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:"Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+.container{
+    margin-top:40px;
+    display: flex;
+    justify-content: center;
+}
+input{
+    width:400px;
+    padding:12px;
+    border:1px solid black;
+    outline:none;
+}
+
+button{
+    padding:12px;
+    border:none;
+    background-color: orangered;
+    color:white;
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+    font-size:17px;
+}
+.block{
+    display: block;
+    width:200px;
+}
+
+#music{
+   
+    width:100vw;
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+}
+
+
+.article{
+
+ 
+  width:250px;
+  margin:10px;
+  padding:5px;
+}
+.width{
+    
+    width:100%;
+}
+.main{
+    text-align: center;
+}
+
+@media(max-width:547.33px){
+    html{
+        font-size:30%;
+    }
+    #music{
+        display: grid;
+        grid-template-columns:repeat(1,1fr);
+        column-gap:-300px;
+        justify-items: center;
+    }
+    input{
+        width:50%;
+    }
+
+
+}
+
+@media(min-width:547.34px) and (max-width:819.33px){
+    html{
+        font-size:70%;
+    }
+    #music{
+        display: grid;
+        grid-template-columns:repeat(2,1fr);
+        column-gap:-300px;
+        justify-items: center;
+    }
+
+}
+
+@media (min-width:819.34px) and (max-width:1029.33px){
+    html{
+        font-size:100%;
+    }
+    #music{
+        display: grid;
+        grid-template-columns:repeat(3,1fr);
+     
+    }
+ 
+}

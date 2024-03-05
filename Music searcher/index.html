@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div >
+        <div class="main">
+            <h1>Mp3 Music</h1>
+            <div class="container">
+              
+            
+                <input type="text" name="" id="search">
+                <button onclick="searchMusic()">Search</button>
+            </div>
+            <div id="music">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function searchMusic(){
+             const search = document.getElementById('search').value;
+             const music = document.getElementById('music');
+            fetch(`https://itunes.apple.com/search?term=${search}`)
+                .then((response) => response.json())
+                .then((data)=>{
+                   
+                    const artists = data.results;
+                    artists.map((result)=>{
+                        // Now create Html Element 
+
+                       const article = document.createElement('article');
+                       article.classList.add('article');
+                       const artists = document.createElement('p');
+                       const song = document.createElement('h4');
+                       const img = document.createElement('img');
+                       img.classList.add('width');
+                       const audio = document.createElement('audio');
+                       audio.classList.add('width');
+                       const audioSource = document.createElement('source');
+                   // Now put content 
+                    artists.innerHTML = result.artistName;
+                    song.innerHTML = result.trackName;
+                    img.src = result.artworkUrl100;
+                    audioSource.src = result.previewUrl;
+                    audio.controls = true;
+
+                    article.appendChild(img);
+                    article.appendChild(artists);
+                    article.appendChild(song);
+                    article.appendChild(audio);
+                    audio.appendChild(audioSource);
+
+                    music.appendChild(article);
+                    })
+               
+
+                
+                })
+    }
+    </script>
+</body>
+
+</html>
